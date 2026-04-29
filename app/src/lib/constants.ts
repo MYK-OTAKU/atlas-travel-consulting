@@ -22,6 +22,10 @@ export const WHATSAPP_MESSAGES = {
     "Bonjour, je souhaite avoir des informations pour un billet d'avion.",
   insurance:
     "Bonjour, je souhaite avoir des informations sur vos services d'assurance voyage.",
+  simulator:
+    "Bonjour, je souhaite recevoir un devis pour un billet d'avion suite à ma simulation sur votre site.",
+  visaCalculator:
+    "Bonjour, je souhaite des conseils suite à l'utilisation de votre calculateur de séjours Schengen.",
 } as const;
 
 export function getWhatsAppUrl(message: string): string {
@@ -42,7 +46,14 @@ export const NAV_LINKS = [
     ],
   },
   { label: "Destinations", href: "/destinations" },
-  { label: "Avis", href: "/avis" },
+  {
+    label: "Outils Pratiques",
+    href: "#",
+    children: [
+      { label: "Calculateur Schengen 90/180", href: "/calcul-visa-schengen" },
+      { label: "Simulateur de Vol", href: "/simulation-itineraire" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ] as const;
 

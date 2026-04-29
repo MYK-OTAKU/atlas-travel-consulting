@@ -28,22 +28,22 @@ export default function Header() {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-4 lg:gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-14 h-14 overflow-hidden rounded-full bg-white shadow-md group-hover:shadow-lg transition-shadow flex-shrink-0 border-2 border-primary/20">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 overflow-hidden rounded-full bg-white shadow-md group-hover:shadow-lg transition-shadow flex-shrink-0 border border-primary/20">
               <Image
                 src="/logo.jpeg"
                 alt={SITE_CONFIG.name}
                 fill
-                sizes="56px"
+                sizes="(max-width: 640px) 56px, 64px"
                 className="object-cover"
                 priority
               />
             </div>
-            <div className="ml-1 sm:ml-2">
+            <div className="ml-1">
               <span
-                className={`font-heading font-bold text-xs sm:text-base leading-tight transition-colors ${
+                className={`font-heading font-bold text-[11px] sm:text-base leading-tight transition-colors whitespace-nowrap ${
                   isScrolled ? "text-secondary" : "text-white"
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-primary/10 ${
+                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-primary/10 whitespace-nowrap ${
                     isScrolled
                       ? "text-secondary hover:text-primary"
                       : "text-white/90 hover:text-white"
@@ -85,16 +85,18 @@ export default function Header() {
                 </Link>
 
                 {"children" in link && openDropdown === link.href && (
-                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 animate-fade-in">
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-4 py-3 text-sm text-secondary hover:bg-primary/5 hover:text-primary transition-colors"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                  <div className="absolute top-full left-0 pt-2 w-64 animate-fade-in">
+                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-3 text-sm text-secondary hover:bg-primary/5 hover:text-primary transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -115,7 +117,7 @@ export default function Header() {
               href={getWhatsAppUrl(WHATSAPP_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-whatsapp hover:bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm"
+              className="inline-flex items-center gap-2 px-2 xl:px-2 py-2.5 bg-whatsapp hover:bg-green-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all text-sm whitespace-nowrap"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>

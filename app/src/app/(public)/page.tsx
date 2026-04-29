@@ -7,6 +7,7 @@ import DestinationsPreview from "@/components/public/DestinationsPreview";
 import ReviewsSection from "@/components/public/ReviewsSection";
 import FAQSection from "@/components/public/FAQSection";
 import ContactCTA from "@/components/public/ContactCTA";
+import ToolsSpotlight from "@/components/public/ToolsSpotlight";
 
 export const metadata: Metadata = {
   title:
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ValuesSection />
       <CampusFranceSpotlight />
       <DestinationsPreview />
+      <ToolsSpotlight />
       <ReviewsSection />
       <ContactCTA />
       <FAQSection />
