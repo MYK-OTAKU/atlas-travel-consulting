@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { GraduationCap, FileCheck, Plane, Shield, Car, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { SERVICES_DATA, getWhatsAppUrl } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -9,20 +10,17 @@ export const metadata: Metadata = {
     "Découvrez tous les services d'ATLAS TRAVEL & CONSULTING : accompagnement Campus France, assistance visa, billetterie internationale, assurance voyage et automobile.",
 };
 
-const iconMap: Record<string, React.ElementType> = {
-  GraduationCap,
-  FileCheck,
-  Plane,
-  Shield,
-  Car,
-};
+
 
 export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image src="/images/hero_services.png" alt="Nos Services" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/30" />
+        </div>
         <div className="container-custom relative z-10">
           <span className="inline-block px-4 py-1.5 bg-white/10 text-primary-light text-sm font-semibold rounded-full mb-4 border border-white/10">
             Nos Services
@@ -46,20 +44,24 @@ export default function ServicesPage() {
         <div className="container-custom">
           <div className="space-y-8">
             {SERVICES_DATA.map((service, index) => {
-              const IconComponent = iconMap[service.icon];
               return (
                 <div
                   key={service.id}
-                  className={`flex flex-col md:flex-row gap-8 items-center p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-all ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  className={`flex flex-col lg:flex-row gap-10 items-center p-8 lg:p-10 rounded-3xl bg-background-alt border border-gray-100 shadow-sm hover:shadow-xl transition-all ${
+                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                   }`}
                 >
-                  <div className="w-full md:w-1/3 flex justify-center">
-                    <div className="w-32 h-32 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                      <IconComponent className="w-16 h-16 text-primary" />
+                  <div className="w-full lg:w-5/12">
+                    <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
+                      <Image 
+                        src={service.image} 
+                        alt={service.title} 
+                        fill 
+                        className="object-cover hover:scale-105 transition-transform duration-500" 
+                      />
                     </div>
                   </div>
-                  <div className="w-full md:w-2/3">
+                  <div className="w-full lg:w-7/12">
                     {index === 0 && (
                       <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-bold rounded-full mb-3">
                         Service Prioritaire

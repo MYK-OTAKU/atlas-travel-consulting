@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { SITE_CONFIG, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 
@@ -5,10 +6,9 @@ export default function ContactCTA() {
   return (
     <section className="relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 gradient-hero" />
-      <div className="absolute inset-0">
-        <div className="absolute top-10 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 z-0">
+        <Image src="/images/bg_contact_cta.png" alt="Contactez-nous" fill className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/40" />
       </div>
 
       <div className="container-custom relative z-10 py-20 lg:py-28">

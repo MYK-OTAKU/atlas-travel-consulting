@@ -65,7 +65,7 @@ export default function FAQSection() {
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-3xl mx-auto space-y-3">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {FAQ_DATA.map((item, index) => (
             <div
               key={index}

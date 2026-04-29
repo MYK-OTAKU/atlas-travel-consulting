@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MapPin } from "lucide-react";
 import { DESTINATIONS_DATA, getFlagUrl } from "@/lib/constants";
 
@@ -27,26 +28,45 @@ export default function DestinationsPreview() {
             <Link
               key={destination.slug}
               href={`/destinations/${destination.slug}`}
-              className={`group relative bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 hover:-translate-y-2 text-center ${
+              className={`group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
                 index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
-              <img
-                src={getFlagUrl(destination.countryCode, 80)}
-                alt={destination.name}
-                width={64}
-                height={44}
-                className="mx-auto mb-4 rounded shadow-sm group-hover:scale-110 transition-transform"
-              />
-              <h3 className="font-heading font-bold text-secondary text-lg mb-2 group-hover:text-primary transition-colors">
-                {destination.name}
-              </h3>
-              <p className="text-secondary-medium text-xs leading-relaxed line-clamp-2">
-                {destination.description}
-              </p>
-              <div className="mt-4 flex items-center justify-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                <MapPin className="w-4 h-4" />
-                Découvrir
+              <div className="absolute inset-0 z-0">
+                <Image 
+                  src={destination.image} 
+                  alt={destination.name} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-secondary/20" />
+              </div>
+              
+              <div className="relative z-10 p-6 flex flex-col h-full min-h-[240px] text-left">
+                <div className="mb-auto">
+                  <img
+                    src={getFlagUrl(destination.countryCode, 40)}
+                    alt={destination.name}
+                    width={32}
+                    height={22}
+                    className="rounded-sm shadow-md"
+                  />
+                </div>
+                
+                <div className="mt-4">
+                  <h3 className="font-heading font-bold text-white text-xl mb-2 group-hover:text-primary-light transition-colors">
+                    {destination.name}
+                  </h3>
+                  <p className="text-white/80 text-xs leading-relaxed line-clamp-2">
+                    {destination.description}
+                  </p>
+                </div>
+
+                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity translate-x-4 group-hover:translate-x-0 duration-300">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
             </Link>
           ))}

@@ -12,13 +12,13 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image src="/images/hero_about.png" alt="À propos d'Atlas Travel" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/30" />
         </div>
         <div className="container-custom relative z-10">
-          <span className="inline-block px-4 py-1.5 bg-white/10 text-primary-light text-sm font-semibold rounded-full mb-4 border border-white/10">
+          <span className="inline-block px-4 py-1.5 bg-white/20 text-white text-sm font-semibold rounded-full mb-4 border border-white/20 backdrop-blur-md">
             À propos
           </span>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -149,6 +149,55 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline / Notre Histoire */}
+      <section className="section-padding bg-white overflow-hidden">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-secondary mb-6">
+              Notre <span className="text-gradient">histoire</span>
+            </h2>
+            <p className="text-secondary-medium text-lg">
+              De notre création à aujourd&apos;hui, une évolution constante pour mieux vous servir.
+            </p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto py-10">
+            {/* Center Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20 rounded-full"></div>
+
+            <div className="space-y-12">
+              {[
+                { year: "2018", title: "Création de l'agence", desc: "Lancement d'Atlas Travel à Bamako avec une petite équipe passionnée.", side: "left" },
+                { year: "2020", title: "Développement Campus France", desc: "Création d'un pôle dédié à l'accompagnement des étudiants vers la France.", side: "right" },
+                { year: "2022", title: "Nouveaux partenariats", desc: "Extension de nos services de billetterie avec les majeures compagnies aériennes.", side: "left" },
+                { year: "Aujourd'hui", title: "Leader à Bamako", desc: "Plus de 500+ étudiants accompagnés et des milliers de voyageurs satisfaits.", side: "right" },
+              ].map((item, index) => (
+                <div key={index} className={`relative flex items-center justify-between w-full ${item.side === "left" ? "flex-row-reverse" : ""}`}>
+                  {/* Empty space for the other side */}
+                  <div className="hidden md:block w-5/12"></div>
+                  
+                  {/* Center Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-white border-4 border-primary shadow-lg z-10 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+
+                  {/* Content Card */}
+                  <div className="w-full md:w-5/12">
+                    <div className={`p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 ${item.side === "left" ? "md:text-right" : "text-left"}`}>
+                      <span className="inline-block px-3 py-1 bg-primary/10 text-primary font-bold rounded-full text-sm mb-3">
+                        {item.year}
+                      </span>
+                      <h3 className="font-heading font-bold text-xl text-secondary mb-2">{item.title}</h3>
+                      <p className="text-secondary-medium text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

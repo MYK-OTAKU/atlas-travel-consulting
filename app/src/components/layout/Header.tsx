@@ -41,20 +41,20 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="hidden sm:block">
+            <div className="ml-1 sm:ml-2">
               <span
-                className={`font-heading font-bold text-lg leading-tight block transition-colors ${
+                className={`font-heading font-bold text-xs sm:text-base leading-tight transition-colors ${
                   isScrolled ? "text-secondary" : "text-white"
                 }`}
               >
-                ATLAS TRAVEL
-              </span>
-              <span
-                className={`text-xs font-medium transition-colors ${
-                  isScrolled ? "text-primary" : "text-primary-light"
-                }`}
-              >
-                & CONSULTING
+                ATLAS TRAVEL{" "}
+                <span
+                  className={`font-medium transition-colors ${
+                    isScrolled ? "text-primary" : "text-primary-light"
+                  }`}
+                >
+                  & CONSULTING
+                </span>
               </span>
             </div>
           </Link>

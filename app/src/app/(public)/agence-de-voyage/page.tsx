@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { Plane, Shield, Car, MapPin, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { DESTINATIONS_DATA, getFlagUrl, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
@@ -13,10 +14,10 @@ export default function AgenceDeVoyagePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image src="/images/hero_agence.png" alt="Agence de Voyage" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/30" />
         </div>
         <div className="container-custom relative z-10">
           <span className="inline-block px-4 py-1.5 bg-white/10 text-primary-light text-sm font-semibold rounded-full mb-4 border border-white/10">

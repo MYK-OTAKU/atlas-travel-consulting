@@ -31,26 +31,26 @@ export default function HeroSection() {
         {/* Left Content */}
         <div className={`max-w-xl pt-10 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           {/* Main Title */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.15] mb-5">
-            Voyagez plus loin,
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-bold text-white leading-[1.15] mb-4">
+            Concrétisez vos
             <br />
-            <span className="text-gradient">en toute confiance.</span>
+            <span className="text-gradient">projets de voyage.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base md:text-lg text-gray-300 max-w-lg mb-8 leading-relaxed">
-            Études à l&apos;étranger, accompagnement visa et billetterie — votre agence de confiance à Bamako vous guide à chaque étape.
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-md mb-8 leading-relaxed">
+            Études, visa et billetterie : l&apos;agence experte à Bamako qui vous accompagne de A à Z.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+          <div className="flex flex-row items-center gap-3 mb-10">
             <a
               href={getWhatsAppUrl(WHATSAPP_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-whatsapp hover:bg-green-600 text-white font-bold rounded-full shadow-2xl shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 bg-whatsapp hover:bg-green-600 text-white font-bold rounded-full shadow-2xl shadow-green-500/30 hover:shadow-green-500/50 transition-all hover:scale-105 text-sm sm:text-base"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.458-1.495A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
               </svg>
@@ -58,10 +58,10 @@ export default function HeroSection() {
             </a>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/20 backdrop-blur-sm transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/20 backdrop-blur-sm transition-all hover:scale-105 text-sm sm:text-base"
             >
               Nos services
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </div>
 

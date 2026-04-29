@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle, AlertTriangle, GraduationCap, BookOpen, Users, Award } from "lucide-react";
 import { CAMPUS_FRANCE_STEPS, getWhatsAppUrl, WHATSAPP_MESSAGES } from "@/lib/constants";
 
@@ -12,10 +13,10 @@ export default function EtudesCampusFrancePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[50vh] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <Image src="/images/hero_etudes.png" alt="Études à l'étranger Campus France" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/30" />
         </div>
         <div className="container-custom relative z-10">
           <div className="flex items-center gap-3 mb-4">
